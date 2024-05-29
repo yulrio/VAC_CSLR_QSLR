@@ -1,4 +1,4 @@
-dataset_root: ./dataset/QSLR2024
-dict_path: ./preprocess/QSLR2024/gloss_dict.npy
+dataset_root: ./dataset/phoenix2014/phoenix-2014-multisigner
+dict_path: ./preprocess/phoenix2014/gloss_dict.npy
 evaluation_dir: ./evaluation/slr_eval
-evaluation_prefix: QSLR2024-groundtruth
+evaluation_prefix: phoenix2014-groundtruth
