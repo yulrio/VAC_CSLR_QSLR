@@ -1,0 +1,74 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "7e3c6578-68e6-41c4-bf5e-21f899d53055",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import glob"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "338f9957-1c2c-48a8-abd9-394456c05831",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "img_list = glob.glob(\"../dataset/QSLR2024/features/fullFrame-480x480px\"+\"/\"+\"train/1_alfatihah_1_4_4/*.jpg\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "288fc7b0-2a0f-4684-96cb-d0625737d8e1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[]"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "img_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "efdd5d2e-4051-4099-925c-0ae4fac22d9c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
