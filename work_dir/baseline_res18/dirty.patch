@@ -1,0 +1,53 @@
+diff --git a/configs/baseline.yaml b/configs/baseline.yaml
+index 177629a..e830c39 100644
+--- a/configs/baseline.yaml
++++ b/configs/baseline.yaml
+@@ -4,10 +4,10 @@ dataset: QSLR2024
+ # dataset: phoenix14-si5
+ num_epoch: 30 # 40
+ work_dir: ./work_dir/baseline_res18/
+-batch_size: 2
++batch_size: 1 #2
+ random_seed: 0
+-test_batch_size: 4 #8
+-num_worker: 2 #10
++test_batch_size: 2 #8
++num_worker: 4 #10
+ device: 0,1
+ log_interval: 50
+ eval_interval: 1
+diff --git a/main.py b/main.py
+index eadaf28..5d5c3bf 100644
+--- a/main.py
++++ b/main.py
+@@ -42,10 +42,10 @@ class Processor():
+                 eval_model = epoch % self.arg.eval_interval == 0
+                 # train end2end model
+                 seq_train(self.data_loader['train'], self.model, self.optimizer,
+-                          self.device, epoch, self.recoder)
++                            self.device, epoch, self.recoder)
+                 if eval_model:
+                     dev_wer = seq_eval(self.arg, self.data_loader['dev'], self.model, self.device,
+-                                       'dev', epoch, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
++                                        'dev', epoch, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
+                     self.recoder.print_log("Dev WER: {:05.2f}%".format(dev_wer))
+                 if save_model:
+                     model_path = "{}dev_{:05.2f}_epoch{}_model.pt".format(self.arg.work_dir, dev_wer, epoch)
+@@ -60,7 +60,7 @@ class Processor():
+             # train_wer = seq_eval(self.arg, self.data_loader["train_eval"], self.model, self.device,
+             #                      "train", 6667, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
+             dev_wer = seq_eval(self.arg, self.data_loader["dev"], self.model, self.device,
+-                               "dev", 6667, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
++                                "dev", 6667, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
+             test_wer = seq_eval(self.arg, self.data_loader["test"], self.model, self.device,
+                                 "test", 6667, self.arg.work_dir, self.recoder, self.arg.evaluate_tool)
+             self.recoder.print_log('Evaluation Done.\n')
+@@ -188,6 +188,8 @@ def import_class(name):
+ 
+ 
+ if __name__ == '__main__':
++    # Kosongkan cache CUDA
++    torch.cuda.empty_cache()
+     sparser = utils.get_parser()
+     p = sparser.parse_args()
+     # p.config = "baseline_iter.yaml"
