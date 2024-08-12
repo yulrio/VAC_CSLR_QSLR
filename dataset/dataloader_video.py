@@ -31,7 +31,8 @@ class BaseFeeder(data.Dataset):
         self.prefix = prefix
         self.dict = gloss_dict
         self.data_type = datatype
-        self.feat_prefix = f"{prefix}/features/fullFrame-256x256px/{mode}"
+        # self.feat_prefix = f"{prefix}/features/fullFrame-256x256px/{mode}"
+        self.feat_prefix = f"{prefix}/features/fullFrame-128x128px/{mode}"
         self.transform_mode = "train" if transform_mode else "test"
         self.inputs_list = np.load(f"./preprocess/QSLR2024/{mode}_info.npy", allow_pickle=True).item()
         # self.inputs_list = np.load(f"{prefix}/annotations/manual/{mode}.corpus.npy", allow_pickle=True).item()
@@ -59,6 +60,7 @@ class BaseFeeder(data.Dataset):
         # load file info
         fi = self.inputs_list[index]
         img_folder = os.path.join(self.prefix, "features/fullFrame-256x256px/" + fi['folder'])
+        img_folder = os.path.join(self.prefix, "features/fullFrame-128x128px/" + fi['folder'])
         img_list = sorted(glob.glob(img_folder))
         label_list = []
         for phase in fi['label'].split(" "):

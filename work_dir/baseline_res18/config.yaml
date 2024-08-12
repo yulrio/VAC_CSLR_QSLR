@@ -24,7 +24,7 @@ loss_weights:
   SeqCTC: 1.0
 model: slr_network.SLRModel
 model_args:
-  c2d_type: resnet18
+  c2d_type: mobilenet_v2
   conv_type: 2
   num_classes: 1296
   share_classifier: false
