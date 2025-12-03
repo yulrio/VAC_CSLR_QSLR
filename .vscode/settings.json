@@ -1,19 +1,17 @@
 {
-  "editor.fontSize": 17,
-  "window.zoomLevel": 0.5,
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.iconTheme": "vscode-icons",
-  "terminal.integrated.fontSize": 16,
+  "editor.fontSize": 15,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.iconTheme": "bearded-icons",
+  "terminal.integrated.fontSize": 15,
   "debug.console.wordWrap": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": false,
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
+  "editor.lineHeight": 24,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
-  "terminal.integrated.defaultProfile.windows": "Command Prompt",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 130,
+  "editor.rulers": [130]
 }
